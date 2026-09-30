@@ -38,7 +38,7 @@ export function Hero() {
 
           <div className="animate-fade-up space-y-3" style={delay(80)}>
             <p className="eyebrow">{siteConfig.role}</p>
-            <h1 className="text-display">{siteConfig.name}</h1>
+            <h1 className="text-display text-gradient">{siteConfig.name}</h1>
           </div>
 
           <p

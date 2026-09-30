@@ -86,6 +86,13 @@
 
   body {
     @apply bg-background text-foreground;
+    /* Very faint mint glow at the top of the page. */
+    background-image: radial-gradient(
+      60rem 28rem at 50% -8rem,
+      oklch(0.86 0.12 180 / 9%),
+      transparent 70%
+    );
+    background-repeat: no-repeat;
   }
 
   /* One consistent, clearly visible keyboard focus style everywhere. */
@@ -152,10 +159,12 @@
 }
 
 /* Standard card treatment: subtle border, lifted surface. */
+/* Standard card: subtle translucent surface with a fine border. */
 @utility surface {
-  background: var(--card);
+  background: color-mix(in oklab, var(--card) 55%, transparent);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
+  backdrop-filter: blur(8px);
 }
 
 
@@ -201,4 +210,37 @@
 /* One-time entrance. Stagger with an inline animationDelay. */
 @utility animate-fade-up {
   animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+
+/* Soft mint glow when hovering a card or badge. */
+@utility glow-hover {
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    background-color 0.25s,
+    transform 0.25s;
+
+  &:hover {
+    border-color: oklch(0.86 0.12 180 / 45%);
+    box-shadow:
+      0 0 0 1px oklch(0.86 0.12 180 / 12%),
+      0 10px 40px -12px oklch(0.86 0.12 180 / 35%);
+  }
+}
+
+/* Headline text fading from off-white to mint. */
+@utility text-gradient {
+  background-image: linear-gradient(
+    120deg,
+    var(--foreground) 35%,
+    var(--primary) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* Extra padding so descenders (g, p, y) are not clipped by the gradient box. */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
 }
