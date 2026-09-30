@@ -11,6 +11,7 @@ export const siteConfig: SiteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   email: "muhammadsohail3542@gmail.com",
   cv: { href: "/cv.pdf", available: false },
+  availability: { open: true, label: "Open to work" },
   nav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/#about" },

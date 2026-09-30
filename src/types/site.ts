@@ -19,6 +19,11 @@ export type SiteConfig = {
   url: string;
   email: string;
   // Set available to true only after a real file exists at public/cv.pdf.
+    // Set available to true only after a real file exists at public/cv.pdf.
   cv: { href: string; available: boolean };
+
+  // Show the "Open to work" badge only when this is actually true.
+  availability: { open: boolean; label: string };
+
   nav: NavItem[];
 };
