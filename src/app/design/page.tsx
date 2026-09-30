@@ -18,7 +18,7 @@ const swatches = [
 
 export default function DesignPage() {
   return (
-    <main className="container-page section-y space-y-16">
+    <div className="container-page section-y space-y-16">
       <header className="space-y-4">
         <p className="eyebrow">Design system / temporary page</p>
         <h1 className="text-display">Sohail Arif</h1>
@@ -73,6 +73,6 @@ export default function DesignPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

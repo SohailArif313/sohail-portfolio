@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Navbar } from "@/components/layout/Navbar";
+import { siteConfig } from "@/data/site";
 import "./globals.css";
 
 // Fonts are loaded at build time by next/font, so there is no layout shift.
@@ -13,11 +15,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Temporary metadata. Real SEO metadata comes from src/data/site.ts later.
+// Temporary metadata. Full SEO metadata is added in a later phase.
 export const metadata: Metadata = {
-  title: "Sohail Arif | AI Engineer",
-  description:
-    "I build AI-powered applications, agentic workflows, RAG systems, and APIs that turn ideas into working products.",
+  title: `${siteConfig.name} | ${siteConfig.role}`,
+  description: siteConfig.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -26,7 +27,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {/* Lets keyboard users jump past the navigation. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+        >
+          Skip to content
+        </a>
+        <Navbar />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
