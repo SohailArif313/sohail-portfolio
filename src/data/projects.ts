@@ -27,36 +27,6 @@ const rawProjects: Project[] = [
     ],
   },
   {
-    id: "mcp-tool-calling-chatbot",
-    slug: "mcp-tool-calling-chatbot",
-    title: "MCP Tool-Calling Chatbot",
-    summary:
-      "A LangGraph chatbot that decides when to call tools served by a custom MCP server (web search and weather), with conversations saved in SQLite and a Streamlit interface.",
-    category: "AI Agent",
-    status: "completed",
-    featured: true,
-    coverImage: "/images/projects/mcp-tool-calling-chatbot/cover.webp",
-    technologies: [
-      "Python",
-      "LangGraph",
-      "LangChain",
-      "MCP",
-      "OpenAI API",
-      "Tavily",
-      "SQLite",
-      "Streamlit",
-    ],
-    githubUrl: "https://github.com/SohailArif313/rag-base-ai-application",
-    architecture:
-      "The agent is a LangGraph state graph with a chat node and a tool node. After each model reply, a conditional edge sends the request to the tool node when the model asked for a tool, and the tool result goes back to the model for the final answer.\n\nThe tools come from a separate MCP server process (built with FastMCP and started over stdio). It exposes two tools: web search through Tavily and a current-weather lookup through Weatherstack. Conversation state is stored with an SQLite checkpointer, so chat threads can be listed and resumed.",
-    features: [
-      "Custom MCP server exposing web search and weather tools",
-      "Model decides on its own when a tool is needed",
-      "Conversation threads persisted in SQLite",
-      "Streamlit chat interface",
-    ],
-  },
-  {
     id: "medibot-patient-records",
     slug: "medibot-patient-records",
     title: "MediBot: Patient Records App",
