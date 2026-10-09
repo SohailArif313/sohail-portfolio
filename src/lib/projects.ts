@@ -19,3 +19,16 @@ export function getProjectCategories(): string[] {
 }
 
 
+// Same-category projects first, then the rest. Never includes the current one.
+export function getRelatedProjects(slug: string, limit = 3): Project[] {
+  const current = getProjectBySlug(slug);
+  if (!current) return [];
+
+  const others = projects.filter((project) => project.slug !== slug);
+  const sameCategory = others.filter(
+    (project) => project.category === current.category
+  );
+  const rest = others.filter((project) => project.category !== current.category);
+
+  return [...sameCategory, ...rest].slice(0, limit);
+}

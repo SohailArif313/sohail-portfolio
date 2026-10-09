@@ -6,19 +6,24 @@ import { validateProjects, type Project } from "@/lib/validation/project";
 // Only publish details that are verified. Remove `placeholder: true`
 // once an entry holds real information.
 const rawProjects: Project[] = [
-  {
+    {
     id: "portfolio-website",
     slug: "portfolio-website",
-    title: "Portfolio Website with AI Assistant",
+    title: "Portfolio Website",
     summary:
-      "This website: a data-driven portfolio built with Next.js, with an AI assistant being added to answer questions about my work.",
-    category: "AI Chatbot",
+      "This website: a data-driven portfolio built with Next.js, TypeScript and Tailwind CSS, deployed on Vercel.",
+    category: "Web App",
     status: "in-progress",
     featured: true,
     date: "2026-09",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Groq API"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     githubUrl: "https://github.com/SohailArif313/sohail-portfolio",
     liveUrl: "https://sohail-portfolio-zeta.vercel.app",
+    features: [
+      "All content lives in typed data files, so adding a project or skill needs no component edits",
+      "Project pages are generated automatically from the project data",
+      "Project data is validated at build time, so mistakes fail the build instead of reaching production",
+    ],
   },
   {
     id: "customer-support-agent",

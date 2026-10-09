@@ -4,6 +4,7 @@ import {
   ArrowUpRight,
   Bot,
   FileSearch,
+  Globe,
   MessagesSquare,
   Server,
   Workflow,
@@ -18,6 +19,7 @@ const categoryIcons: Record<Project["category"], LucideIcon> = {
   RAG: FileSearch,
   "Backend API": Server,
   Automation: Workflow,
+  "Web App": Globe,
 };
 
 const badgeBase =

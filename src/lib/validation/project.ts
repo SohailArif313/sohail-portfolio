@@ -7,6 +7,7 @@ export const projectCategories = [
   "RAG",
   "Backend API",
   "Automation",
+  "Web App",
 ] as const;
 
 export const projectStatuses = ["completed", "in-progress"] as const;
